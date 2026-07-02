@@ -1,0 +1,163 @@
+/* Universal Selector */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Element Selector */
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    line-height:1.6;
+}
+
+/* ID Selector */
+
+#header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Navigation */
+
+nav ul{
+    list-style:none;
+    margin-top:10px;
+}
+
+nav ul li{
+    display:inline-block;
+    margin-right:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* Group Selector */
+
+h2,p{
+    margin-bottom:15px;
+}
+
+/* Welcome */
+
+.welcome{
+    text-align:center;
+    padding:60px 20px;
+}
+
+button{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+/* Courses */
+
+.courses{
+    padding:40px 20px;
+}
+
+.course-container{
+    text-align:center;
+}
+
+.card{
+    display:inline-block;
+    width:300px;
+    background:white;
+    margin:15px;
+    padding:20px;
+    border:1px solid #ccc;
+    position:relative;
+    vertical-align:top;
+}
+
+.badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:red;
+    color:white;
+    padding:5px 10px;
+}
+
+/* Notice */
+
+.notice{
+    padding:40px 20px;
+}
+
+.notice-box{
+    max-width:800px;
+    height:150px;
+    overflow:auto;
+    border:2px solid #333;
+    background:white;
+    padding:20px;
+}
+
+/* Campus */
+
+.campus{
+    padding:40px 20px;
+}
+
+.image-box{
+    position:relative;
+    max-width:900px;
+}
+
+.image-box img{
+    width:100%;
+    display:block;
+}
+
+.info-box{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    background:white;
+    padding:15px;
+    border:1px solid black;
+    z-index:5;
+}
+
+/* Fixed Contact Button */
+
+.contact-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#007BFF;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    border-radius:5px;
+}
+
+/* Footer */
+
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
