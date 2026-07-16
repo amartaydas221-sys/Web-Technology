@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Appointment Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Patient Appointment Registration Form</h2>
+
+<form action="#" method="post" id="appointmentForm">
+
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname">
+        <br><br>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="lname">
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <br><br>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword">
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" id="male" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" name="gender" id="female" value="Female">
+        <label for="female">Female</label>
+
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Appointment Information</legend>
+
+        Preferred Service:<br>
+
+        <input type="checkbox" name="service" id="consultation" value="Consultation">
+        <label for="consultation">Consultation</label>
+
+        <input type="checkbox" name="service" id="emergency" value="Emergency">
+        <label for="emergency">Emergency</label>
+
+        <input type="checkbox" name="service" id="surgery" value="Surgery">
+        <label for="surgery">Surgery</label>
+
+        <br><br>
+
+        <label for="department">Doctor's Department:</label>
+        <select name="department" id="department">
+            <option value="">Select Department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopedics</option>
+            <option>Pediatrics</option>
+        </select>
+
+        <br><br>
+
+        <label for="description">Health Description:</label>
+        <br>
+
+        <textarea name="description" id="description" rows="5" cols="40"></textarea>
+
+    </fieldset>
+
+    <br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Reset">
+
+</form>
+
+<h3 id="success"></h3>
+
+<script src="code.js"></script>
+
+</body>
+</html>
