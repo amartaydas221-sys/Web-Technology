@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGuide – Travel Cost Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">TG</span>
+      <span>TravelGuide</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="calculator.html" class="active">Calculator</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div id="navGuestActions">
+        <a href="login.html" class="btn-text">Login</a>
+        <a href="register.html" class="btn-primary">Register</a>
+      </div>
+      <div id="navUserDisplay" class="nav-user" style="display:none;">
+        <span id="navUserName"></span>
+        <span id="navUserRole" class="user-badge-role"></span>
+        <button class="btn-outline" onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CALCULATOR MAIN SECTION -->
+  <main>
+    <section class="section light-section">
+      <div style="max-width:1050px; margin:0 auto;">
+        <span class="eyebrow">✦ Plan Your Budget</span>
+        <h2>Travel Cost Calculator</h2>
+        <p class="sub-text">Estimate total trip expenses in seconds with live breakdown.</p>
+      </div>
+
+      <div class="calculator-grid">
+        <!-- Input Form (Left Side) -->
+        <div class="card card-form">
+          <div class="form-group">
+            <label for="cDest">Destination</label>
+            <input type="text" id="cDest" class="form-input" placeholder="e.g. Cappadocia, Turkey" value="Cappadocia, Turkey"/>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cTrav">Number of Travelers</label>
+              <input type="number" id="cTrav" class="form-input" value="2" min="1"/>
+            </div>
+            <div class="form-group">
+              <label for="cDays">Number of Days</label>
+              <input type="number" id="cDays" class="form-input" value="5" min="1"/>
+            </div>
+          </div>
+
+          <h4 style="margin: 18px 0 12px; font-size:0.85rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">
+            Costs (USD)
+          </h4>
+
+          <div class="form-group">
+            <label for="cTrans">🚌 Transportation Cost (total)</label>
+            <input type="number" id="cTrans" class="form-input" value="500"/>
+          </div>
+          <div class="form-group">
+            <label for="cAccom">🏨 Accommodation (per night)</label>
+            <input type="number" id="cAccom" class="form-input" value="800"/>
+          </div>
+          <div class="form-group">
+            <label for="cFood">🍽️ Food Cost (per person/day)</label>
+            <input type="number" id="cFood" class="form-input" value="300"/>
+          </div>
+          <div class="form-group">
+            <label for="cOther">🎒 Other Expenses (total)</label>
+            <input type="number" id="cOther" class="form-input" value="100"/>
+          </div>
+
+          <button id="btnCalc" class="btn-primary btn-block" style="margin-top:12px;" onclick="runCalculation()">
+            Calculate Total Cost
+          </button>
+        </div>
+
+        <!-- Result Box (Right Side) -->
+        <div class="card card-result">
+          <!-- Empty State (Shown initially) -->
+          <div id="resEmpty" class="result-placeholder">
+            <span class="icon">🧮</span>
+            <h3>Your Results Appear Here</h3>
+            <p>Fill in the trip details and click calculate to see your estimated budget.</p>
+          </div>
+
+          <!-- Calculated Results (Shown on click) -->
+          <div id="resFilled" class="result-breakdown" style="display:none;">
+            <div id="rTotal" class="total-amount">$0</div>
+            <span class="total-label">Estimated Total Budget</span>
+
+            <div class="summary-list">
+              <div class="summary-item"><span>Destination</span><b id="rDest">—</b></div>
+              <div class="summary-item"><span>Travelers</span><b id="rTrav">—</b></div>
+              <div class="summary-item"><span>Duration</span><b id="rDays">—</b></div>
+              <div class="summary-item"><span>Transportation</span><b id="rTrans">—</b></div>
+              <div class="summary-item"><span>Accommodation</span><b id="rAccom">—</b></div>
+              <div class="summary-item"><span>Food Total</span><b id="rFood">—</b></div>
+              <div class="summary-item"><span>Other</span><b id="rOther">—</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-icon">TG</span>
+          <span>TravelGuide</span>
+        </div>
+        <p>Your trusted companion for discovering the world's most remarkable destinations.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Destinations</a></li>
+          <li><a href="calculator.html">Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Scout Program</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2028 TravelGuide. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script src="script.js"></script>
+  <script>
+    function runCalculation() {
+      const dest      = document.getElementById('cDest').value.trim() || 'Not specified';
+      const travelers = parseInt(document.getElementById('cTrav').value) || 1;
+      const days      = parseInt(document.getElementById('cDays').value) || 1;
+      const transport = parseFloat(document.getElementById('cTrans').value) || 0;
+      const accom     = parseFloat(document.getElementById('cAccom').value) || 0;
+      const food      = parseFloat(document.getElementById('cFood').value) || 0;
+      const other     = parseFloat(document.getElementById('cOther').value) || 0;
+
+      const totalAccom = accom * days;
+      const totalFood  = food * travelers * days;
+      const total      = transport + totalAccom + totalFood + other;
+      const fmt        = n => '$' + Number(n).toLocaleString();
+
+      const btn = document.getElementById('btnCalc');
+      btn.disabled = true;
+      btn.textContent = 'Calculating...';
+
+      document.getElementById('rTotal').textContent = fmt(total);
+      document.getElementById('rDest').textContent  = dest;
+      document.getElementById('rTrav').textContent  = `${travelers} person(s)`;
+      document.getElementById('rDays').textContent  = `${days} day(s)`;
+      document.getElementById('rTrans').textContent = fmt(transport);
+      document.getElementById('rAccom').textContent = fmt(totalAccom);
+      document.getElementById('rFood').textContent  = fmt(totalFood);
+      document.getElementById('rOther').textContent = fmt(other);
+
+      document.getElementById('resEmpty').style.display = 'none';
+      document.getElementById('resFilled').style.display = 'block';
+      showToast('Budget calculated successfully!');
+      btn.disabled = false;
+      btn.textContent = 'Calculate Total Cost';
+
+      const payload = {
+        destination: dest,
+        travelers: travelers,
+        days: days,
+        transport: transport,
+        accommodation: accom,
+        food: food,
+        other: other,
+        email: Cookies.get('tg_email') || ''
+      };
+
+      try {
+        sendAjax({
+          url: 'api/calculator.php',
+          method: 'POST',
+          data: payload,
+          onSuccess: function(res) {
+            if (res && res.success) {
+              document.getElementById('rTotal').textContent = fmt(res.total || total);
+              document.getElementById('rDest').textContent = res.destination || dest;
+              document.getElementById('rTrav').textContent = `${res.breakdown?.travelers ?? travelers} person(s)`;
+              document.getElementById('rDays').textContent = `${res.breakdown?.days ?? days} day(s)`;
+              document.getElementById('rTrans').textContent = fmt(res.breakdown?.transport ?? transport);
+              document.getElementById('rAccom').textContent = fmt(res.breakdown?.accommodation ?? totalAccom);
+              document.getElementById('rFood').textContent = fmt(res.breakdown?.food ?? totalFood);
+              document.getElementById('rOther').textContent = fmt(res.breakdown?.other ?? other);
+            }
+          },
+          onError: function(err) {
+            console.warn('Background calculator save failed:', err);
+          }
+        });
+      } catch (err) {
+        console.warn('Calculator fallback worked without backend:', err);
+      }
+    }
+  </script>
+</body>
+</html>

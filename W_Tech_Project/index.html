@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGuide – Home</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">TG</span>
+      <span>TravelGuide</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div id="navGuestActions">
+        <a href="login.html" class="btn-text">Login</a>
+        <a href="register.html" class="btn-primary">Register</a>
+      </div>
+      <div id="navUserDisplay" class="nav-user" style="display:none;">
+        <span id="navUserName" class="user-badge-name"></span>
+        <span id="navUserRole" class="user-badge-role"></span>
+        <button class="btn-outline" onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-mountain"></div>
+      <div class="hero-content">
+        <div class="badge"><b>+</b> World's Best Travel Discovery Platform</div>
+        <h1 class="hero-title">Discover Your <span class="accent">Next Adventure</span></h1>
+        <p class="hero-sub">Explore amazing destinations, discover hidden places, and plan your next journey with curated travel guides.</p>
+        
+        <form class="search-bar" action="explore.html" method="GET">
+          <input type="text" name="search" placeholder="Search destinations, countries..."/>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <h2>Ready to Start Exploring?</h2>
+      <p>Join thousands of travellers discovering the world's most remarkable destinations.</p>
+      <div class="cta-buttons">
+        <a href="register.html" class="btn-primary">Get Started Free</a>
+        <a href="explore.html" class="btn-outline-white">Browse Destinations</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2028 TravelGuide. All rights reserved.</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

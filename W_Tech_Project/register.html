@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGuide – Register</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">TG</span>
+      <span>TravelGuide</span>
+    </a>
+    <div class="nav-actions">
+      <a href="login.html" class="btn-text">Login</a>
+    </div>
+  </nav>
+
+  <!-- AUTH MAIN CONTAINER -->
+  <main class="auth-container">
+    <!-- Left Visual Image Panel -->
+    <div class="auth-visual">
+      <p class="auth-quote">"Adventure awaits. Create an account and discover the world's hidden wonders."</p>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="auth-form-side">
+      <div class="auth-header">
+        <div class="nav-logo" style="color:var(--text-main); margin-bottom:12px;">
+          <span class="logo-icon">TG</span>
+          <span>TravelGuide</span>
+        </div>
+        <h2>Create an Account</h2>
+        <p>Join thousands of global travellers today</p>
+      </div>
+
+      <div id="regFeedback" class="feedback-msg" style="display:none;"></div>
+
+      <div class="form-group">
+        <label for="regName">Full Name</label>
+        <input type="text" id="regName" class="form-input" placeholder="John Doe"/>
+      </div>
+
+      <div class="form-group">
+        <label for="regEmail">Email Address</label>
+        <input type="email" id="regEmail" class="form-input" placeholder="you@example.com"/>
+      </div>
+
+      <div class="form-group">
+        <label for="regPass">Password</label>
+        <input type="password" id="regPass" class="form-input" placeholder="Create a password"/>
+      </div>
+
+      <button id="btnRegSubmit" class="btn-primary btn-block" style="margin-top:10px;" onclick="handleRegister()">
+        Create Account
+      </button>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign In</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function handleRegister() {
+      const name     = document.getElementById('regName').value.trim();
+      const email    = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPass').value.trim();
+      const feedback = document.getElementById('regFeedback');
+      const btn      = document.getElementById('btnRegSubmit');
+
+      if (!name || !email || !password) {
+        feedback.textContent = 'Please fill out all fields.';
+        feedback.className = 'feedback-msg err';
+        feedback.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+
+      sendAjax({
+        url: 'api/register.php',
+        method: 'POST',
+        data: { name, email, password },
+        onSuccess: (res) => {
+          btn.disabled = false;
+          btn.textContent = 'Create Account';
+
+          if (res.success) {
+            feedback.textContent = 'Account created successfully! Redirecting to login...';
+            feedback.className = 'feedback-msg ok';
+            feedback.style.display = 'block';
+            setTimeout(() => window.location.href = 'login.html', 1500);
+          } else {
+            feedback.textContent = res.message;
+            feedback.className = 'feedback-msg err';
+            feedback.style.display = 'block';
+          }
+        },
+        onError: () => {
+          btn.disabled = false;
+          btn.textContent = 'Create Account';
+          feedback.textContent = 'Registration error occurred.';
+          feedback.className = 'feedback-msg err';
+          feedback.style.display = 'block';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

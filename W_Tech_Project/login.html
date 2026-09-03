@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGuide – Login</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">TG</span>
+      <span>TravelGuide</span>
+    </a>
+    <div class="nav-actions">
+      <a href="register.html" class="btn-primary">Register</a>
+    </div>
+  </nav>
+
+  <main class="auth-container">
+    <!-- Left Visual Image Panel -->
+    <div class="auth-visual">
+      <p class="auth-quote">"The world is a book and those who do not travel read only one page."</p>
+    </div>
+
+    <!-- Right Login Form -->
+    <div class="auth-form-side">
+      <div class="auth-header">
+        <div class="nav-logo" style="color:var(--text-main); margin-bottom:12px;">
+          <span class="logo-icon">TG</span>
+          <span>TravelGuide</span>
+        </div>
+        <h2>Welcome back</h2>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <div id="feedback" class="feedback-msg" style="display:none;"></div>
+
+      <div class="form-group">
+        <label for="loginEmail">Email Address</label>
+        <input type="email" id="loginEmail" class="form-input" placeholder="you@example.com" value="user@travelguide.com"/>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPass">Password</label>
+        <input type="password" id="loginPass" class="form-input" placeholder="••••••••" value="password123"/>
+      </div>
+
+      <div class="form-group">
+        <label for="loginRole">Demo Role</label>
+        <select id="loginRole" class="form-input">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value="scout">Scout</option>
+        </select>
+      </div>
+
+      <button id="btnLoginSubmit" class="btn-primary btn-block" style="margin-top:10px;" onclick="handleLogin()">
+        Sign In
+      </button>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Register</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function handleLogin() {
+      const email    = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPass').value.trim();
+      const role     = document.getElementById('loginRole').value;
+      const feedback = document.getElementById('feedback');
+      const btn      = document.getElementById('btnLoginSubmit');
+
+      if (!email || !password) {
+        feedback.textContent = 'Please fill out all fields.';
+        feedback.className = 'feedback-msg err';
+        feedback.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      sendAjax({
+        url: 'api/login.php',
+        method: 'POST',
+        data: { email, password, role },
+        onSuccess: (res) => {
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+
+          if (res.success) {
+            Cookies.set('tg_user', res.user.name);
+            Cookies.set('tg_email', res.user.email);
+            Cookies.set('tg_role', res.user.role);
+
+            feedback.textContent = res.message;
+            feedback.className = 'feedback-msg ok';
+            feedback.style.display = 'block';
+
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 1000);
+          } else {
+            feedback.textContent = res.message;
+            feedback.className = 'feedback-msg err';
+            feedback.style.display = 'block';
+          }
+        },
+        onError: () => {
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+          feedback.textContent = 'Network error occurred.';
+          feedback.className = 'feedback-msg err';
+          feedback.style.display = 'block';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
