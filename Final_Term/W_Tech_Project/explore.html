@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelGuide – Explore Destinations</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">TG</span>
+      <span>TravelGuide</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="explore.html" class="active">Explore</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div id="navGuestActions">
+        <a href="login.html" class="btn-text">Login</a>
+        <a href="register.html" class="btn-primary">Register</a>
+      </div>
+      <div id="navUserDisplay" class="nav-user" style="display:none;">
+        <span id="navUserName"></span>
+        <span id="navUserRole" class="user-badge-role"></span>
+        <button class="btn-outline" onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section dark-section">
+      <div class="section-heading">
+        <span class="eyebrow">✦ Editor's Picks</span>
+        <div class="heading-row">
+          <h2>Featured Destinations</h2>
+        </div>
+      </div>
+
+      <!-- AJAX Destination Container -->
+      <div id="destGrid" class="cards-grid">
+        <div class="spinner"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2028 TravelGuide. All rights reserved.</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+  <script>
+    // Load Destinations via AJAX
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('destGrid');
+      sendAjax({
+        url: 'api/destination.php',
+        onSuccess: (res) => {
+          if (!res.success || !res.data.length) {
+            grid.innerHTML = '<p>No destinations found.</p>';
+            return;
+          }
+          grid.innerHTML = res.data.map(item => `
+            <article class="card dest-card">
+              <div class="dest-img-wrap di-${item.image_color || 'green'}">
+                <span class="tag t-${item.budget_type === 'Expensive' ? 'exp' : (item.budget_type === 'Budget' ? 'bud' : 'mod')}">
+                  ${item.budget_type}
+                </span>
+              </div>
+              <div class="dest-content">
+                <h3>${item.name}</h3>
+                <div class="dest-meta">📍 ${item.country} • ${item.category}</div>
+                <p class="dest-desc">${item.description}</p>
+                <button class="btn-primary btn-block" onclick="showToast('Itinerary details coming soon!')">View Details</button>
+              </div>
+            </article>
+          `).join('');
+        },
+        onError: () => {
+          grid.innerHTML = '<p>Failed to load destinations.</p>';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
