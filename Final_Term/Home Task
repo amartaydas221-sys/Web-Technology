@@ -1,0 +1,252 @@
+<?php
+
+// 1. strlen()
+// Returns the length of a string.
+$text = "Hello World";
+echo strlen($text);
+echo "<br><br>";
+
+
+// 2. str_word_count()
+// Counts the number of words in a string.
+$text = "Hello World PHP";
+echo str_word_count($text);
+echo "<br><br>";
+
+
+// 3. str_contains()
+// Checks whether a string contains a specific word or text.
+$text = "I am learning PHP";
+var_dump(str_contains($text, "PHP"));
+echo "<br><br>";
+
+
+// 4. strpos()
+// Finds the position of a word or character inside a string.
+$text = "Hello World";
+echo strpos($text, "World");
+echo "<br><br>";
+
+
+// 5. strtoupper()
+// Converts a string to uppercase letters.
+$text = "hello php";
+echo strtoupper($text);
+echo "<br><br>";
+
+
+// 6. strtolower()
+// Converts a string to lowercase letters.
+$text = "HELLO PHP";
+echo strtolower($text);
+echo "<br><br>";
+
+
+// 7. str_replace()
+// Replaces some text with another text.
+$text = "I like Java";
+echo str_replace("Java", "PHP", $text);
+echo "<br><br>";
+
+
+// 8. strrev()
+// Reverses a string.
+$text = "Hello";
+echo strrev($text);
+echo "<br><br>";
+
+
+// 9. trim()
+// Removes spaces from the beginning and end of a string.
+$text = "   Hello PHP   ";
+echo trim($text);
+echo "<br><br>";
+
+
+// 10. explode()
+// Splits a string into an array.
+$text = "Apple,Banana,Mango";
+$fruits = explode(",", $text);
+print_r($fruits);
+echo "<br><br>";
+
+
+// 11. implode()
+// Joins array elements into a single string.
+$fruits = array("Apple", "Banana", "Mango");
+echo implode(", ", $fruits);
+echo "<br><br>";
+
+
+// 12. substr()
+// Returns a part of a string.
+$text = "Hello World";
+echo substr($text, 0, 5);
+echo "<br><br>";
+
+
+// 13. is_int()
+// Checks whether a value is an integer.
+$num = 10;
+var_dump(is_int($num));
+echo "<br><br>";
+
+
+// 14. is_float()
+// Checks whether a value is a floating-point number.
+$num = 10.5;
+var_dump(is_float($num));
+echo "<br><br>";
+
+
+// 15. is_nan()
+// Checks whether a value is Not a Number (NaN).
+$num = acos(2);
+var_dump(is_nan($num));
+echo "<br><br>";
+
+
+// 16. is_numeric()
+// Checks whether a value is a number or a numeric string.
+$num = "123";
+var_dump(is_numeric($num));
+echo "<br><br>";
+
+
+// 17. round()
+// Rounds a floating-point number to the nearest integer.
+$num = 10.6;
+echo round($num);
+echo "<br><br>";
+
+
+// 18. define()
+// Creates a constant value.
+define("COLLEGE", "ABC University");
+echo COLLEGE;
+echo "<br><br>";
+
+
+// 19. date()
+// Formats the current date and time.
+echo date("Y-m-d");
+echo "<br><br>";
+
+
+// 20. strtotime()
+// Converts a date/time string into a Unix timestamp.
+$date = strtotime("2026-08-20");
+echo $date;
+echo "<br><br>";
+
+
+// 21. time()
+// Returns the current Unix timestamp.
+echo time();
+echo "<br><br>";
+
+
+// 22. date_default_timezone_set()
+// Sets the default timezone for date and time functions.
+date_default_timezone_set("Asia/Dhaka");
+echo date("Y-m-d H:i:s");
+echo "<br><br>";
+
+
+// 23. date_default_timezone_get()
+// Returns the currently selected timezone.
+echo date_default_timezone_get();
+echo "<br><br>";
+
+
+// 24. include
+// Includes another PHP file in the current PHP file.
+// include "header.php";
+
+
+// 25. require
+// Includes another PHP file and stops the script if the file is missing.
+// require "config.php";
+
+
+// 26. json_encode()
+// Converts a PHP array into a JSON string.
+$data = array("name" => "Amartay", "age" => 22);
+echo json_encode($data);
+echo "<br><br>";
+
+
+// 27. json_decode()
+// Converts a JSON string into a PHP object or array.
+$json = '{"name":"Amartay","age":22}';
+$data = json_decode($json);
+echo $data->name;
+echo "<br><br>";
+
+
+// 28. array()
+// Creates an array.
+$fruits = array("Apple", "Banana", "Mango");
+print_r($fruits);
+echo "<br><br>";
+
+
+// 29. array_keys()
+// Returns all the keys of an array.
+$student = array(
+    "name" => "Amartay",
+    "age" => 22,
+    "department" => "CSE"
+);
+
+print_r(array_keys($student));
+echo "<br><br>";
+
+
+// 30. array_merge()
+// Combines two or more arrays into one array.
+$array1 = array("Apple", "Banana");
+$array2 = array("Mango", "Orange");
+
+$result = array_merge($array1, $array2);
+print_r($result);
+echo "<br><br>";
+
+
+// 31. array_push()
+// Adds one or more elements to the end of an array.
+$fruits = array("Apple", "Banana");
+array_push($fruits, "Mango");
+print_r($fruits);
+echo "<br><br>";
+
+
+// 32. array_reverse()
+// Reverses the order of elements in an array.
+$fruits = array("Apple", "Banana", "Mango");
+print_r(array_reverse($fruits));
+echo "<br><br>";
+
+
+// 33. sizeof()
+// Returns the number of elements in an array.
+$fruits = array("Apple", "Banana", "Mango");
+echo sizeof($fruits);
+echo "<br><br>";
+
+
+// 34. count()
+// Counts the number of elements in an array.
+$fruits = array("Apple", "Banana", "Mango");
+echo count($fruits);
+echo "<br><br>";
+
+
+// 35. sort()
+// Sorts an array in ascending order.
+$numbers = array(50, 20, 40, 10, 30);
+sort($numbers);
+print_r($numbers);
+echo "<br><br>";
+
+?>
