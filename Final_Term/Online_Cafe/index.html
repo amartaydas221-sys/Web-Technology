@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Café - Online Food Ordering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+  <h2>Campus Café - Online Food Ordering</h2>
+
+  <form id="myForm">
+
+ <label for="fullName">Full Name</label>
+ <input type="text" id="fullName" placeholder="Enter your full name">
+<small id="fullNameError" class="error"></small>
+
+<label for="email">Email</label>
+     <input type="email" id="email" placeholder="example@gmail.com">
+  <small id="emailError" class="error"></small>
+
+<label for="phone">Phone Number</label>
+<input type="text" id="phone" placeholder="Enter your phone number">
+ <small id="phoneError" class="error"></small>
+
+ <label for="studentId">Student ID</label>
+<input type="text" id="studentId" placeholder="e.g. 23-55068-3">
+ <small id="studentIdError" class="error"></small>
+
+ <label>Gender</label>
+
+ <div class="radio-group">
+
+ <input type="radio" id="male" name="gender" value="Male">
+ <label for="male">Male</label>
+
+<input type="radio" id="female" name="gender" value="Female">
+ <label for="female">Female</label>
+
+</div>
+
+ <small id="genderError" class="error"></small>
+
+  <label for="department">Department</label>
+
+   <select id="department">
+  <option value="">-- Select Department --</option>
+  <option value="CSE">CSE</option>
+<option value="EEE">EEE</option>
+  <option value="BBA">BBA</option>
+  <option value="English">English</option>
+  <option value="Other">Other</option>
+     </select>
+
+<small id="departmentError" class="error"></small>
+
+<label>Food Selection</label>
+  <div class="food-group">
+
+  <div class="food-item">
+ <input type="checkbox" id="burger" name="food" value="Burger" data-price="5">
+  <label for="burger">Burger - $5</label>
+ </div>
+
+<div class="food-item">
+<input type="checkbox" id="pizza" name="food" value="Pizza" data-price="8">
+ <label for="pizza">Pizza - $8</label>
+ </div>
+
+<div class="food-item">
+<input type="checkbox" id="sandwich" name="food" value="Sandwich" data-price="4">
+<label for="sandwich">Sandwich - $4</label>
+</div>
+
+<div class="food-item">
+ <input type="checkbox" id="fries" name="food" value="French Fries" data-price="3">
+<label for="fries">French Fries - $3</label>
+  </div>
+
+<div class="food-item">
+<input type="checkbox" id="coffee" name="food" value="Coffee" data-price="2">
+ <label for="coffee">Coffee - $2</label>
+</div>
+
+<div class="food-item">
+<input type="checkbox" id="coldDrink" name="food" value="Cold Drink" data-price="2">
+<label for="coldDrink">Cold Drink - $2</label>
+ </div>
+
+</div>
+
+<small id="foodError" class="error"></small>
+     <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" placeholder="Enter quantity" min="0">
+
+ <small id="quantityError" class="error"></small>
+ <label for="instructions">Special Instructions</label>
+
+ <textarea id="instructions" rows="3"
+                placeholder="Any special instructions (optional)"></textarea>
+     <button type="submit">Place Order</button>
+
+
+
+ </form>
+
+  <div class="result" id="resultBox">
+
+ <h3>Order Summary</h3>
+
+ <p id="resultName"></p>
+ <p id="resultStudentId"></p>
+ <p id="resultDepartment"></p>
+ <p id="resultItemsLabel"></p>
+ <ul id="resultItems"></ul>
+ <p id="resultQuantity"></p>
+<p id="resultTotal"></p>
+
+<p id="confirmationMessage" class="success"></p>
+
+ </div>
+
+</div>
+
+   <script src="script.js"></script>
+</body>
+
+</html>
