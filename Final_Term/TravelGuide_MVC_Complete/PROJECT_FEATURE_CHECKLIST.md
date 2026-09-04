@@ -1,0 +1,29 @@
+# Proposal-to-Code Feature Checklist
+
+- [x] Guest registration and login
+- [x] Guest browse approved posts
+- [x] Search/filter destinations
+- [x] Guest post details
+- [x] Guest travel calculator
+- [x] Registered user dashboard
+- [x] Profile view/edit/delete
+- [x] Change password
+- [x] Password reset
+- [x] Wishlist add/remove
+- [x] Comments add/delete own
+- [x] Scout dashboard
+- [x] Scout create destination post request
+- [x] Scout own request list
+- [x] Scout edit/delete own eligible request
+- [x] Scout handles administrator change request and resubmits
+- [x] Scout views approved posts
+- [x] Administrator dashboard
+- [x] Administrator user add/verify/delete
+- [x] Administrator approve/reject/change-request workflow
+- [x] Administrator edit/unpublish/delete posts
+- [x] Administrator delete any comment
+- [x] Server-side RBAC
+- [x] MVC folder structure
+- [x] PDO prepared statements
+- [x] Sessions, validation and CSRF protection
+- [x] AJAX/JSON calculator

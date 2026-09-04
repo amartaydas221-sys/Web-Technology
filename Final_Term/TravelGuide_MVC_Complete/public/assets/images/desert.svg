@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#92400e"/><stop offset="1" stop-color="#fde68a"/></linearGradient></defs>
+<rect width="1200" height="700" fill="url(#g)"/>
+<circle cx="930" cy="145" r="72" fill="#fff" opacity=".5"/>
+<path d="M0 620 L210 335 L355 500 L535 235 L735 470 L890 300 L1200 610 L1200 700 L0 700 Z" fill="#0f172a" opacity=".48"/>
+<path d="M0 650 L300 470 L450 585 L660 385 L820 520 L1040 400 L1200 555 L1200 700 L0 700 Z" fill="#fff" opacity=".12"/>
+<text x="70" y="100" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="700">Himma Desert</text>
+<text x="73" y="150" fill="#fff" opacity=".85" font-family="Arial, sans-serif" font-size="28">Saudi Arabia · TravelGuide</text>
+</svg>

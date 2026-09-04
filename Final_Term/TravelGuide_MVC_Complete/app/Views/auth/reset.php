@@ -1,0 +1,4 @@
+<section class="simple-page"><div class="narrow-card"><h1>Choose a new password</h1>
+<?php if(!$valid): ?><div class="alert alert-error">This reset link is missing, invalid or expired.</div><a class="btn btn-primary" href="<?= e(url('forgot-password')) ?>">Request another link</a>
+<?php else: ?><p>Resetting password for <strong><?= e($valid['email']) ?></strong>.</p><form method="post" action="<?= e(url('reset-password')) ?>"><?= csrf_field() ?><input type="hidden" name="token" value="<?= e($token) ?>"><label>New password<input type="password" name="password" minlength="8" required></label><label>Confirm password<input type="password" name="password_confirmation" minlength="8" required></label><button class="btn btn-primary btn-block" type="submit">Reset Password</button></form><?php endif; ?>
+</div></section>
