@@ -1,0 +1,5 @@
+<section class="page-heading"><span class="eyebrow">A BETTER KIND OF TAKEAWAY</span><h1>Find your next favorite</h1><p>Fresh dishes from local kitchens across Dhaka.</p></section>
+<section class="section menu-section">
+  <form class="filter-row" id="menu-filters"><input name="search" value="<?= e($_GET['search'] ?? '') ?>" placeholder="Search dishes or kitchens"><select name="category"><option value="all">All dishes</option></select><select name="maxPrice"><option value="">Any price</option><option value="150">Up to ৳150</option><option value="250">Up to ৳250</option><option value="400">Up to ৳400</option><option value="600">Up to ৳600</option></select><select name="sort"><option value="popular">Popular</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="rating">Top rated</option><option value="newest">Newest</option></select><button class="button">Search</button></form>
+  <div class="product-grid" data-products data-menu-results></div>
+</section>

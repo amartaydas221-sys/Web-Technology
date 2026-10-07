@@ -1,0 +1,2 @@
+<section class="page-heading"><span class="eyebrow">FOODPLAN DELIVERY</span><h1>My deliveries</h1><p>Request a ready order, wait for admin approval, then deliver it to the customer and share your live location.</p></section>
+<section class="section rider-dashboard"><div class="panel"><h2>Messages</h2><div data-rider-messages></div></div><div class="panel"><h2>Ready orders</h2><div data-rider-available></div></div><div class="panel"><h2>My assigned deliveries</h2><div data-rider-orders></div></div></section>
